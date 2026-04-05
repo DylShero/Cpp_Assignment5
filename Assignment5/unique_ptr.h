@@ -116,8 +116,9 @@ namespace HPC
 
 	template <typename T>
 	T* unique_ptr<T>::release(){
+		T* saved_ptr = this->managed_object;
 		this->managed_object = nullptr;
-		return this->managed_object;
+		return saved_ptr;
 	}
 
 } /* HPC */ 
